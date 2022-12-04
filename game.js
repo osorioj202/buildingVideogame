@@ -69,6 +69,9 @@ function startGame() {
         gameWin();
         return;
     }
+    if (gameWin) {
+        clearInterval(timeInterval);
+    }
 
     if (!timeStart) {
         timeStart = Date.now();
@@ -174,7 +177,7 @@ function gameWin() {
             localStorage.setItem('record_time', playerTime);
             pResult.innerHTML = 'SUPERASTE EL RECORD';
         } else {
-            pResult.innerHTML = 'no superaste el record LOCA!!!';
+            pResult.innerHTML = 'no superaste el record!!!';
         }
     } else {
         localStorage.setItem('record_time', playerTime);
